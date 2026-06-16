@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Use — Routinic</title>
+<meta name="description" content="Terms of Use for Routinic, a privacy-first daily habit tracker for Android.">
+<style>
+  :root {
+    --bg:         #0F0F13;
+    --surface:    #17171E;
+    --surface-2:  #1E1E28;
+    --border:     #2A2A38;
+    --text:       #F1F0FF;
+    --text-sec:   #9E9CB8;
+    --text-muted: #5E5C78;
+    --brand:      #818CF8;
+    --brand-dk:   #6366F1;
+    --brand-lt:   #1E1E38;
+    --green:      #34D399;
+    --green-lt:   #0D2A1F;
+    --amber:      #FBBF24;
+    --amber-lt:   #2A1F0A;
+    --red:        #F87171;
+    --red-lt:     #2A0F0F;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    padding: 0 48px;
+    height: 64px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-svg { width: 32px; height: 32px; flex-shrink: 0; }
+  .logo-text { font-size: 17px; font-weight: 700; color: var(--text); letter-spacing: -.01em; }
+  .nav-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+
+  .btn-store {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all .2s;
+  }
+  .btn-store:hover { background: var(--brand-lt); border-color: var(--brand); color: var(--brand); }
+  .btn-store svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+  .page { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
+
+  .page-header { margin-bottom: 48px; }
+  .page-header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -.03em;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .page-meta { font-size: 14px; color: var(--text-muted); }
+
+  .intro {
+    color: var(--text-sec);
+    font-size: 15.5px;
+    line-height: 1.8;
+    margin-bottom: 52px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  .intro a { color: var(--brand); text-decoration: none; }
+  .intro a:hover { text-decoration: underline; }
+
+  .section { margin-bottom: 44px; padding-bottom: 44px; border-bottom: 1px solid var(--border); }
+  .section:last-of-type { border-bottom: none; }
+
+  .section h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section h2::before {
+    content: "";
+    width: 3px;
+    height: 20px;
+    background: var(--brand);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  p { color: var(--text-sec); font-size: 15px; margin-bottom: 14px; line-height: 1.8; }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--text); font-weight: 600; }
+  a { color: var(--brand); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  ul { list-style: none; padding: 0; margin: 12px 0; }
+  ul li {
+    display: flex;
+    gap: 12px;
+    padding: 8px 0;
+    color: var(--text-sec);
+    font-size: 15px;
+    line-height: 1.7;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  ul li:first-child { border-top: 1px solid var(--border); }
+  ul li::before { content: "–"; color: var(--brand); flex-shrink: 0; font-weight: 600; margin-top: 1px; }
+
+  .callout { border-radius: 10px; padding: 14px 18px; margin: 16px 0; border-left: 3px solid; }
+  .callout p { margin: 0; font-size: 14px; line-height: 1.7; }
+  .callout-green { background: var(--green-lt); border-color: var(--green); }
+  .callout-green p { color: #A7F3D0; }
+  .callout-amber { background: var(--amber-lt); border-color: var(--amber); }
+  .callout-amber p { color: #FDE68A; }
+  .callout-red { background: var(--red-lt); border-color: var(--red); }
+  .callout-red p { color: #FCA5A5; }
+
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .contact-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--brand-lt); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .contact-icon svg { width: 20px; height: 20px; fill: none; stroke: var(--brand); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .contact-email { font-size: 15px; font-weight: 600; color: var(--text); }
+  .contact-sub { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  footer a { color: var(--text-muted); text-decoration: none; }
+  footer a:hover { color: var(--brand); }
+  .footer-links { display: flex; gap: 24px; }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 20px; }
+    .page { padding: 40px 20px 72px; }
+    .page-header h1 { font-size: 1.7rem; }
+    footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px 20px; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <svg class="logo-svg" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="lg-tou" x1="22" y1="22" x2="86" y2="86" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#818CF8"/>
+          <stop offset="0.5" stop-color="#6366F1"/>
+          <stop offset="1" stop-color="#4F46E5"/>
+        </linearGradient>
+        <radialGradient id="rg-tou" cx="42" cy="42" r="40" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#fff" stop-opacity=".2"/>
+          <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <circle cx="54" cy="56" r="34" fill="#60A5FA" fill-opacity=".12"/>
+      <circle cx="54" cy="54" r="32" fill="url(#lg-tou)"/>
+      <circle cx="54" cy="54" r="28" fill="url(#rg-tou)"/>
+      <path d="M48,58L39,49C38.1,48.1 38.1,46.6 39,45.7C39.9,44.8 41.4,44.8 42.3,45.7L49.7,53.1L66.7,36.1C67.6,35.2 69.1,35.2 70,36.1C70.9,37 70.9,38.5 70,39.4L51.3,58C50.4,58.9 48.9,58.9 48,58Z" fill="#fff" fill-opacity=".55"/>
+      <path d="M48,72L39,63C38.1,62.1 38.1,60.6 39,59.7C39.9,58.8 41.4,58.8 42.3,59.7L49.7,67.1L66.7,50.1C67.6,49.2 69.1,49.2 70,50.1C70.9,51 70.9,52.5 70,53.4L51.3,72C50.4,72.9 48.9,72.9 48,72Z" fill="#fff"/>
+    </svg>
+    <span class="logo-text">Routinic</span>
+  </a>
+  <div class="nav-right">
+    <a class="btn-store" href="https://play.google.com/store/apps/details?id=com.pzee.routinic" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3.18 23.76c.37.21.8.22 1.18.04l12.93-7.47-2.79-2.79L3.18 23.76zm-1.47-20.2C1.27 3.9 1 4.36 1 4.93v14.14c0 .57.27 1.03.71 1.37l.08.06 7.93-7.92v-.19L1.71 3.56l-.07.06.07-.06zM20.49 10.7l-2.55-1.47-3.12 3.12 3.12 3.12 2.57-1.48c.73-.42.73-1.87-.02-2.29zM4.36.24L17.3 7.71 14.5 10.5 3.54.22C3.93.03 4.38.03 4.36.24z"/>
+      </svg>
+      Play Store
+    </a>
+  </div>
+</nav>
+
+<!-- PAGE -->
+<div class="page">
+
+  <div class="page-header">
+    <h1>Terms of Use</h1>
+    <p class="page-meta">Last Updated: April 26, 2026</p>
+  </div>
+
+  <p class="intro">
+    Welcome to Routinic. By downloading, installing, or using Routinic, you agree to be bound by these Terms of Use and our <a href="privacy-policy.html">Privacy Policy</a>. Please read them carefully. If you do not agree to these terms, please do not download or use the app.
+  </p>
+
+  <!-- 1 -->
+  <div class="section">
+    <h2>1. Acceptance of Terms</h2>
+    <p>By accessing or using Routinic — including downloading it from the Google Play Store, installing it, or using any of its features — you confirm that you have read, understood, and agree to these Terms of Use and our <a href="privacy-policy.html">Privacy Policy</a>. If you are using the app on behalf of someone else or an organisation, you confirm you have authority to bind them to these terms.</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="section">
+    <h2>2. Description of Service</h2>
+    <p>Routinic is an Android habit tracker that helps you build and maintain positive daily routines. The app provides:</p>
+    <ul>
+      <li>Create and manage daily, weekly, monthly, and one-time habits using custom settings or pre-built templates</li>
+      <li>Track habit completion, build streaks, and earn Awesome Days</li>
+      <li>View progress through bar-chart analytics, a monthly calendar heatmap, and per-habit statistics</li>
+      <li>Set up to three reminders per habit with exact-time alarms</li>
+      <li>Run timed habits — meditation, focused work, workouts — using the built-in countdown timer</li>
+      <li>Break bad habits using the dedicated Quit Bad Habits category</li>
+      <li>Customise the app with Light, Dark, and Dark Blue themes</li>
+    </ul>
+    <p>Features may be added, changed, or removed in future updates. Significant changes will be communicated through Play Store update notes.</p>
+  </div>
+
+  <!-- 3 -->
+  <div class="section">
+    <h2>3. Free to Use &amp; Advertisements</h2>
+    <p>Routinic is free to download and use. To support ongoing development, the app displays advertisements served by <strong>Google AdMob</strong>.</p>
+    <div class="callout callout-amber">
+      <p><strong>Ad consent at first launch.</strong> When you first open Routinic, Google's User Messaging Platform (UMP) will ask for your consent to personalised advertising. You may accept or decline. To change your choice later, go to your Android Google account settings under <strong>Ads &amp; data</strong>, or reinstall the app to see the prompt again.</p>
+    </div>
+    <ul>
+      <li>By using Routinic, you agree that advertisements may be displayed within the app.</li>
+      <li>We aim to show ads in a non-intrusive manner that does not interfere with core features.</li>
+      <li>Ad content is determined by Google AdMob and is outside our direct control. We are not responsible for the content of third-party advertisements.</li>
+      <li>Routinic does not share your personal habit data with advertisers.</li>
+    </ul>
+  </div>
+
+  <!-- 4 -->
+  <div class="section">
+    <h2>4. User Responsibilities</h2>
+    <p>When using Routinic, you agree to:</p>
+    <ul>
+      <li>Use the app only for lawful personal purposes</li>
+      <li>Not attempt to reverse engineer, decompile, or modify the app or its source code</li>
+      <li>Not interfere with, disrupt, or bypass any feature or security measure of the app</li>
+      <li>Not use the app in any way that violates applicable local, national, or international laws</li>
+      <li>Maintain the security of your own device, including keeping your OS updated</li>
+    </ul>
+  </div>
+
+  <!-- 5 -->
+  <div class="section">
+    <h2>5. Data &amp; Privacy</h2>
+    <div class="callout callout-green">
+      <p><strong>Your data stays on your device.</strong> All habit data, streaks, statistics, and settings are stored locally using an offline database. Routinic does not collect, transmit, or store your personal habit data on any server. We cannot access or recover it.</p>
+    </div>
+    <ul>
+      <li><strong>Data loss risk:</strong> If you uninstall Routinic, reset your device, or clear app data, your habit history is permanently deleted. We cannot recover it for you.</li>
+      <li><strong>No account required:</strong> Your use of Routinic is entirely local to your device.</li>
+      <li><strong>Backup recommended:</strong> Enable Android's device backup to protect against accidental loss.</li>
+      <li><strong>Firebase services:</strong> We use Firebase Crashlytics and Firebase Analytics to collect anonymous crash reports and usage data to improve the app. This data does not include your personal habit data.</li>
+    </ul>
+    <p>For full details on data handling, see our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+  </div>
+
+  <!-- 6 -->
+  <div class="section">
+    <h2>6. Reminders &amp; Notifications</h2>
+    <p>Routinic uses Android's exact alarm system to deliver habit reminders at the times you configure. By setting reminders, you grant Routinic permission to schedule and deliver local notifications on your device.</p>
+    <ul>
+      <li>Reminders are delivered locally and do not require an internet connection.</li>
+      <li>Disable reminders anytime in Android Settings → Apps → Routinic → Notifications.</li>
+      <li>Routinic reschedules your reminders automatically after your device restarts.</li>
+      <li>If reminders are unreliable, check that Routinic is not restricted by Android battery optimisation settings.</li>
+    </ul>
+  </div>
+
+  <!-- 7 -->
+  <div class="section">
+    <h2>7. Intellectual Property</h2>
+    <p>Routinic — including its name, logo, design, source code, user interface, habit templates, icons, and all original content — is the intellectual property of Routinic and is protected by applicable copyright, trademark, and intellectual property laws.</p>
+    <p>You are granted a limited, non-exclusive, non-transferable, revocable licence to use Routinic on your Android device for personal, non-commercial purposes. You may not copy, reproduce, distribute, or create derivative works from Routinic without prior written permission.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="section">
+    <h2>8. Health Disclaimer</h2>
+    <div class="callout callout-red">
+      <p><strong>Not a medical device.</strong> Routinic is a personal productivity and habit tracking tool. It should not be used as a substitute for professional medical advice, diagnosis, or treatment. If you are tracking health-related habits — medication, sleep, exercise, diet, or mental wellness — always consult a qualified healthcare professional.</p>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="section">
+    <h2>9. Disclaimer of Warranties</h2>
+    <p>Routinic is provided <strong>"as is"</strong> and <strong>"as available"</strong> without warranties of any kind. We do not warrant that:</p>
+    <ul>
+      <li>The app will be error-free, uninterrupted, or free of bugs</li>
+      <li>All reminders and alarms will fire at their intended times on all devices and Android versions</li>
+      <li>The app will be compatible with all current or future Android versions</li>
+      <li>Data stored locally will not be lost due to device failure or OS updates</li>
+    </ul>
+  </div>
+
+  <!-- 10 -->
+  <div class="section">
+    <h2>10. Limitation of Liability</h2>
+    <p>To the maximum extent permitted by applicable law, Routinic and its developers shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of data, loss of profits, or loss of goodwill — arising from:</p>
+    <ul>
+      <li>Your use of or inability to use the app</li>
+      <li>Missed reminders, lost habit data, or inaccurate statistics</li>
+      <li>Third-party content displayed through Google AdMob</li>
+      <li>Any changes, suspension, or discontinuation of the app</li>
+    </ul>
+  </div>
+
+  <!-- 11 -->
+  <div class="section">
+    <h2>11. App Updates</h2>
+    <p>We may release updates through the Google Play Store to add features, fix bugs, improve performance, or comply with changes in Android or Play Store policies. We recommend keeping Routinic updated. Some updates may change or remove existing features — significant changes will be noted in the Play Store update description.</p>
+  </div>
+
+  <!-- 12 -->
+  <div class="section">
+    <h2>12. Termination</h2>
+    <p>You may stop using Routinic at any time by uninstalling it from your device. Uninstalling will permanently delete all locally stored data.</p>
+    <p>We reserve the right to discontinue Routinic or restrict access at any time, with or without notice, including for legal compliance or a decision to discontinue the product.</p>
+  </div>
+
+  <!-- 13 -->
+  <div class="section">
+    <h2>13. Changes to These Terms</h2>
+    <p>We may update these Terms from time to time as the app evolves or as required by law. When we do, we will update the date at the top of this page. Continued use of Routinic after changes are posted constitutes your acceptance of the updated terms.</p>
+  </div>
+
+  <!-- 14 -->
+  <div class="section">
+    <h2>14. Governing Law</h2>
+    <p>These Terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from these terms or your use of Routinic shall be subject to the jurisdiction of the courts in the developer's country of residence, unless otherwise required by mandatory consumer protection laws in your jurisdiction.</p>
+  </div>
+
+  <!-- 15 -->
+  <div class="section">
+    <h2>15. Contact</h2>
+    <p>If you have any questions about these Terms of Use, contact us at:</p>
+    <div class="contact-card">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div>
+        <div class="contact-email"><a href="mailto:routinic.app@gmail.com">routinic.app@gmail.com</a></div>
+        <div class="contact-sub">We typically respond within 2–3 business days.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" style="display:flex;align-items:center;gap:8px;text-decoration:none;">
+    <svg style="width:22px;height:22px;" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="flg-tou" x1="22" y1="22" x2="86" y2="86" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#818CF8"/><stop offset="1" stop-color="#4F46E5"/>
+        </linearGradient>
+      </defs>
+      <circle cx="54" cy="54" r="32" fill="url(#flg-tou)"/>
+      <path d="M48,58L39,49C38.1,48.1 38.1,46.6 39,45.7C39.9,44.8 41.4,44.8 42.3,45.7L49.7,53.1L66.7,36.1C67.6,35.2 69.1,35.2 70,36.1C70.9,37 70.9,38.5 70,39.4L51.3,58C50.4,58.9 48.9,58.9 48,58Z" fill="#fff" fill-opacity=".55"/>
+      <path d="M48,72L39,63C38.1,62.1 38.1,60.6 39,59.7C39.9,58.8 41.4,58.8 42.3,59.7L49.7,67.1L66.7,50.1C67.6,49.2 69.1,49.2 70,50.1C70.9,51 70.9,52.5 70,53.4L51.3,72C50.4,72.9 48.9,72.9 48,72Z" fill="#fff"/>
+    </svg>
+    <span style="font-size:14px;font-weight:600;color:var(--text-muted);">Routinic</span>
+  </a>
+  <div class="footer-links">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-of-use.html">Terms of Use</a>
+    <a href="mailto:routinic.app@gmail.com">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
