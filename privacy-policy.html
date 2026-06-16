@@ -1,353 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Privacy Policy — Routinic</title>
-<meta name="description" content="Privacy Policy for Routinic, a privacy-first daily habit tracker for Android.">
+<meta name="description" content="Privacy Policy for Routinic, a privacy-first daily habit tracker for Android."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --bg:         #0F0F13;
-    --surface:    #17171E;
-    --surface-2:  #1E1E28;
-    --border:     #2A2A38;
-    --text:       #F1F0FF;
-    --text-sec:   #9E9CB8;
-    --text-muted: #5E5C78;
-    --brand:      #818CF8;
-    --brand-dk:   #6366F1;
-    --brand-lt:   #1E1E38;
-    --green:      #34D399;
-    --green-lt:   #0D2A1F;
-    --amber:      #FBBF24;
-    --amber-lt:   #2A1F0A;
-    --red:        #F87171;
-    --red-lt:     #2A0F0F;
-  }
+:root{
+  --void:#08080D;--glass:rgba(255,255,255,0.035);--glass-hover:rgba(255,255,255,0.055);
+  --border:rgba(255,255,255,0.07);--text:#F0EEFF;--text-sec:#9896B8;--text-muted:#524F72;
+  --brand:#818CF8;--brand-dk:#6366F1;--brand-glow:rgba(99,102,241,0.2);--brand-lt:rgba(129,140,248,0.1);
+  --green:#34D399;--green-lt:rgba(52,211,153,0.08);--amber:#FBBF24;--amber-lt:rgba(251,191,36,0.08);
+  --red:#F87171;--red-lt:rgba(248,113,113,0.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--void);color:var(--text);
+  font-size:16px;line-height:1.75;
+  min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden;
+}
+.ambient{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden;}
+.orb1{position:absolute;top:-150px;right:-100px;width:500px;height:500px;background:radial-gradient(ellipse,rgba(99,102,241,0.14) 0%,transparent 68%);border-radius:50%;}
+.orb2{position:absolute;bottom:-120px;left:-60px;width:400px;height:400px;background:radial-gradient(ellipse,rgba(129,140,248,0.08) 0%,transparent 65%);border-radius:50%;}
+.wrap{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh;}
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;padding:0 48px;height:62px;
+  background:rgba(8,8,13,0.8);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-svg{width:28px;height:28px;}
+.logo-text{font-size:16px;font-weight:800;color:var(--text);letter-spacing:-.02em;}
+.nav-right{margin-left:auto;}
+.btn-store{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--glass);border:1px solid var(--border);
+  color:var(--text);font-size:13px;font-weight:500;
+  padding:8px 16px;border-radius:10px;text-decoration:none;
+  backdrop-filter:blur(10px);transition:border-color .2s,color .2s,background .2s;
+}
+.btn-store:hover{border-color:var(--brand);color:var(--brand);background:rgba(129,140,248,.08);}
+.btn-store svg{width:14px;height:14px;fill:currentColor;}
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 16px;
-    line-height: 1.8;
-    min-height: 100vh;
-  }
+.page-wrap{
+  max-width:740px;margin:0 auto;
+  padding:64px 32px 96px;flex:1;
+}
 
-  /* ── NAV ── */
-  nav {
-    display: flex;
-    align-items: center;
-    padding: 0 48px;
-    height: 64px;
-    border-bottom: 1px solid var(--border);
-    background: var(--bg);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
+/* PAGE HEADER */
+.page-header{margin-bottom:48px;}
+.pg-eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--brand-lt);border:1px solid rgba(129,140,248,.2);
+  color:var(--brand);font-size:11px;font-weight:700;
+  letter-spacing:.6px;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;margin-bottom:20px;
+}
+.page-header h1{
+  font-size:clamp(1.8rem,4vw,2.6rem);
+  font-weight:800;letter-spacing:-.05em;line-height:1.15;
+  color:var(--text);margin-bottom:10px;
+}
+.pg-meta{font-size:13px;color:var(--text-muted);}
 
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-  }
-  .logo-svg { width: 32px; height: 32px; flex-shrink: 0; }
-  .logo-text {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--text);
-    letter-spacing: -.01em;
-  }
+.intro-block{
+  background:var(--glass);border:1px solid var(--border);
+  border-radius:16px;padding:22px 24px;
+  backdrop-filter:blur(16px);margin-bottom:48px;
+}
+.intro-block p{color:var(--text-sec);font-size:.95rem;line-height:1.8;margin:0;}
 
-  .nav-right {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+/* SECTIONS */
+.doc-section{margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid var(--border);}
+.doc-section:last-of-type{border-bottom:none;}
+.doc-section h2{
+  font-size:1rem;font-weight:700;color:var(--text);
+  margin-bottom:16px;display:flex;align-items:center;gap:12px;
+  letter-spacing:-.02em;
+}
+.doc-section h2::before{
+  content:'';width:3px;height:18px;flex-shrink:0;
+  background:linear-gradient(180deg,#818CF8,#6366F1);border-radius:2px;
+}
+p{color:var(--text-sec);font-size:.9rem;margin-bottom:12px;line-height:1.8;}
+p:last-child{margin-bottom:0;}
+strong{color:var(--text);font-weight:600;}
+a{color:var(--brand);text-decoration:none;transition:opacity .2s;}
+a:hover{opacity:.75;text-decoration:underline;}
 
-  /* Play Store button */
-  .btn-store {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-size: 13px;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: all .2s;
-    cursor: pointer;
-  }
-  .btn-store:hover {
-    background: var(--brand-lt);
-    border-color: var(--brand);
-    color: var(--brand);
-  }
-  .btn-store svg { width: 16px; height: 16px; flex-shrink: 0; }
+ul{list-style:none;padding:0;margin:12px 0;}
+ul li{
+  display:flex;gap:12px;padding:9px 0;
+  color:var(--text-sec);font-size:.9rem;line-height:1.7;
+  border-bottom:1px solid rgba(255,255,255,0.04);align-items:flex-start;
+}
+ul li:first-child{border-top:1px solid rgba(255,255,255,0.04);}
+ul li::before{content:"–";color:var(--brand);flex-shrink:0;font-weight:600;margin-top:1px;}
+ul ul{margin:6px 0 6px 14px;}
+ul ul li{border:none;padding:3px 0;}
+ul ul li::before{content:"·";}
 
-  /* ── MAIN CONTENT ── */
-  .page {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 24px 96px;
-  }
+/* CALLOUTS */
+.callout{
+  border-radius:12px;padding:14px 18px;margin:16px 0;
+  border-left:2px solid;backdrop-filter:blur(10px);
+}
+.callout p{margin:0;font-size:.875rem;line-height:1.7;}
+.callout-green{background:var(--green-lt);border-color:var(--green);}
+.callout-green p{color:rgba(167,243,208,.9);}
+.callout-amber{background:var(--amber-lt);border-color:var(--amber);}
+.callout-amber p{color:rgba(253,230,138,.9);}
+.callout-red{background:var(--red-lt);border-color:var(--red);}
+.callout-red p{color:rgba(252,165,165,.9);}
 
-  /* Page title block */
-  .page-header { margin-bottom: 48px; }
-  .page-header h1 {
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: var(--text);
-    letter-spacing: -.03em;
-    line-height: 1.2;
-    margin-bottom: 10px;
-  }
-  .page-meta {
-    font-size: 14px;
-    color: var(--text-muted);
-  }
+/* TABLE */
+.ptable{
+  width:100%;border-collapse:collapse;
+  font-size:12.5px;margin:14px 0;
+  border-radius:12px;overflow:hidden;
+  border:1px solid var(--border);
+}
+.ptable thead{background:rgba(255,255,255,.04);}
+.ptable th{
+  padding:10px 14px;text-align:left;
+  color:var(--text-muted);font-size:10.5px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;
+}
+.ptable td{
+  padding:10px 14px;border-top:1px solid var(--border);
+  color:var(--text-sec);vertical-align:top;line-height:1.5;
+}
+.ptable td:first-child{font-family:'SF Mono','Courier New',monospace;font-size:10.5px;color:var(--brand);font-weight:600;white-space:nowrap;}
+.ptable td:nth-child(2){color:var(--text);font-weight:500;white-space:nowrap;}
+.ptable tbody tr:hover{background:rgba(255,255,255,.02);}
 
-  .intro {
-    color: var(--text-sec);
-    font-size: 15.5px;
-    line-height: 1.8;
-    margin-bottom: 52px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid var(--border);
-  }
+/* CONTACT CARD */
+.contact-card{
+  background:var(--glass);border:1px solid var(--border);
+  border-radius:14px;padding:18px 22px;margin-top:14px;
+  display:flex;align-items:center;gap:14px;
+  backdrop-filter:blur(16px);
+}
+.contact-icon{
+  width:42px;height:42px;border-radius:11px;
+  background:var(--brand-lt);border:1px solid rgba(129,140,248,.2);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.contact-icon svg{width:18px;height:18px;fill:none;stroke:var(--brand);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.contact-email{font-size:.9rem;font-weight:600;color:var(--text);}
+.contact-sub{font-size:12px;color:var(--text-muted);margin-top:2px;}
 
-  /* ── SECTIONS ── */
-  .section {
-    margin-bottom: 44px;
-    padding-bottom: 44px;
-    border-bottom: 1px solid var(--border);
-  }
-  .section:last-of-type {
-    border-bottom: none;
-  }
+footer{
+  border-top:1px solid var(--border);
+  background:rgba(8,8,13,.6);backdrop-filter:blur(20px);
+  padding:24px 48px;display:flex;align-items:center;justify-content:space-between;
+  font-size:13px;color:var(--text-muted);
+}
+footer a{color:var(--text-muted);text-decoration:none;transition:color .2s;}
+footer a:hover{color:var(--brand);}
+.footer-logo{display:flex;align-items:center;gap:8px;text-decoration:none;}
+.footer-logo span{font-size:13px;font-weight:600;color:var(--text-muted);}
+.footer-links{display:flex;gap:24px;}
 
-  .section h2 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .section h2::before {
-    content: "";
-    width: 3px;
-    height: 20px;
-    background: var(--brand);
-    border-radius: 2px;
-    flex-shrink: 0;
-  }
-
-  p {
-    color: var(--text-sec);
-    font-size: 15px;
-    margin-bottom: 14px;
-    line-height: 1.8;
-  }
-  p:last-child { margin-bottom: 0; }
-
-  strong { color: var(--text); font-weight: 600; }
-  a { color: var(--brand); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-
-  /* Lists */
-  ul { list-style: none; padding: 0; margin: 12px 0; }
-  ul li {
-    display: flex;
-    gap: 12px;
-    padding: 8px 0;
-    color: var(--text-sec);
-    font-size: 15px;
-    line-height: 1.7;
-    border-bottom: 1px solid var(--border);
-    align-items: flex-start;
-  }
-  ul li:first-child { border-top: 1px solid var(--border); }
-  ul li::before {
-    content: "–";
-    color: var(--brand);
-    flex-shrink: 0;
-    font-weight: 600;
-    margin-top: 1px;
-  }
-
-  /* Sub-list (nested) */
-  ul ul { margin: 6px 0 6px 16px; }
-  ul ul li { border: none; padding: 3px 0; }
-  ul ul li::before { content: "·"; }
-
-  /* Callouts */
-  .callout {
-    border-radius: 10px;
-    padding: 14px 18px;
-    margin: 16px 0;
-    border-left: 3px solid;
-  }
-  .callout p { margin: 0; font-size: 14px; line-height: 1.7; }
-
-  .callout-green { background: var(--green-lt); border-color: var(--green); }
-  .callout-green p { color: #A7F3D0; }
-
-  .callout-amber { background: var(--amber-lt); border-color: var(--amber); }
-  .callout-amber p { color: #FDE68A; }
-
-  .callout-red { background: var(--red-lt); border-color: var(--red); }
-  .callout-red p { color: #FCA5A5; }
-
-  /* Permission table */
-  .ptable {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-    margin: 14px 0;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-  }
-  .ptable thead { background: var(--surface-2); }
-  .ptable th {
-    padding: 10px 14px;
-    text-align: left;
-    color: var(--text-muted);
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-  }
-  .ptable td {
-    padding: 10px 14px;
-    border-top: 1px solid var(--border);
-    color: var(--text-sec);
-    vertical-align: top;
-    font-size: 13px;
-    line-height: 1.55;
-  }
-  .ptable td:first-child {
-    font-family: 'SF Mono', 'Courier New', monospace;
-    font-size: 11px;
-    color: var(--brand);
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  .ptable td:nth-child(2) {
-    color: var(--text);
-    font-weight: 500;
-    white-space: nowrap;
-  }
-  .ptable tbody tr:hover { background: var(--surface-2); }
-
-  /* Contact card */
-  .contact-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 20px 22px;
-    margin-top: 14px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .contact-icon {
-    width: 44px; height: 44px;
-    border-radius: 12px;
-    background: var(--brand-lt);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .contact-icon svg { width: 20px; height: 20px; fill: none; stroke: var(--brand); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .contact-email { font-size: 15px; font-weight: 600; color: var(--text); }
-  .contact-sub { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
-
-  /* ── FOOTER ── */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 28px 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 13px;
-    color: var(--text-muted);
-  }
-  footer a { color: var(--text-muted); text-decoration: none; }
-  footer a:hover { color: var(--brand); }
-  .footer-links { display: flex; gap: 24px; }
-
-  @media (max-width: 640px) {
-    nav { padding: 0 20px; }
-    .page { padding: 40px 20px 72px; }
-    .page-header h1 { font-size: 1.7rem; }
-    footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px 20px; }
-    .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
-  }
+@media(max-width:640px){
+  nav{padding:0 20px;}
+  .page-wrap{padding:44px 20px 72px;}
+  footer{flex-direction:column;gap:16px;text-align:center;padding:24px 20px;}
+  .footer-links{flex-wrap:wrap;justify-content:center;gap:16px;}
+}
 </style>
 </head>
 <body>
+<div class="ambient"><div class="orb1"></div><div class="orb2"></div></div>
+<div class="wrap">
 
-<!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">
+  <a class="nav-logo" href="routinic.html">
     <svg class="logo-svg" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="lg-pp" x1="22" y1="22" x2="86" y2="86" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="#818CF8"/>
-          <stop offset="0.5" stop-color="#6366F1"/>
-          <stop offset="1" stop-color="#4F46E5"/>
-        </linearGradient>
-        <radialGradient id="rg-pp" cx="42" cy="42" r="40" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="#fff" stop-opacity=".2"/>
-          <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-      <circle cx="54" cy="56" r="34" fill="#60A5FA" fill-opacity=".12"/>
-      <circle cx="54" cy="54" r="32" fill="url(#lg-pp)"/>
-      <circle cx="54" cy="54" r="28" fill="url(#rg-pp)"/>
-      <path d="M48,58L39,49C38.1,48.1 38.1,46.6 39,45.7C39.9,44.8 41.4,44.8 42.3,45.7L49.7,53.1L66.7,36.1C67.6,35.2 69.1,35.2 70,36.1C70.9,37 70.9,38.5 70,39.4L51.3,58C50.4,58.9 48.9,58.9 48,58Z" fill="#fff" fill-opacity=".55"/>
+      <defs><linearGradient id="nl" x1="22" y1="22" x2="86" y2="86" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#818CF8"/><stop offset="1" stop-color="#4F46E5"/></linearGradient><radialGradient id="nr" cx="42" cy="42" r="40" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="54" cy="54" r="32" fill="url(#nl)"/><circle cx="54" cy="54" r="28" fill="url(#nr)"/>
+      <path d="M48,58L39,49C38.1,48.1 38.1,46.6 39,45.7C39.9,44.8 41.4,44.8 42.3,45.7L49.7,53.1L66.7,36.1C67.6,35.2 69.1,35.2 70,36.1C70.9,37 70.9,38.5 70,39.4L51.3,58C50.4,58.9 48.9,58.9 48,58Z" fill="#fff" fill-opacity=".5"/>
       <path d="M48,72L39,63C38.1,62.1 38.1,60.6 39,59.7C39.9,58.8 41.4,58.8 42.3,59.7L49.7,67.1L66.7,50.1C67.6,49.2 69.1,49.2 70,50.1C70.9,51 70.9,52.5 70,53.4L51.3,72C50.4,72.9 48.9,72.9 48,72Z" fill="#fff"/>
     </svg>
     <span class="logo-text">Routinic</span>
   </a>
-
   <div class="nav-right">
-    <!-- Play Store button — replace YOUR_PLAY_STORE_LINK with your actual URL -->
     <a class="btn-store" href="https://play.google.com/store/apps/details?id=com.pzee.routinic" target="_blank" rel="noopener">
-      <!-- Google Play icon -->
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M3.18 23.76c.37.21.8.22 1.18.04l12.93-7.47-2.79-2.79L3.18 23.76zm-1.47-20.2C1.27 3.9 1 4.36 1 4.93v14.14c0 .57.27 1.03.71 1.37l.08.06 7.93-7.92v-.19L1.71 3.56l-.07.06.07-.06zM20.49 10.7l-2.55-1.47-3.12 3.12 3.12 3.12 2.57-1.48c.73-.42.73-1.87-.02-2.29zM4.36.24L17.3 7.71 14.5 10.5 3.54.22C3.93.03 4.38.03 4.36.24z"/>
-      </svg>
+      <svg viewBox="0 0 24 24"><path d="M3.18 23.76c.37.21.8.22 1.18.04l12.93-7.47-2.79-2.79L3.18 23.76zm-1.47-20.2C1.27 3.9 1 4.36 1 4.93v14.14c0 .57.27 1.03.71 1.37l.08.06 7.93-7.92v-.19L1.71 3.56l-.07.06.07-.06zM20.49 10.7l-2.55-1.47-3.12 3.12 3.12 3.12 2.57-1.48c.73-.42.73-1.87-.02-2.29zM4.36.24L17.3 7.71 14.5 10.5 3.54.22C3.93.03 4.38.03 4.36.24z"/></svg>
       Play Store
     </a>
   </div>
 </nav>
 
-<!-- PAGE -->
-<div class="page">
-
+<div class="page-wrap">
   <div class="page-header">
+    <div class="pg-eyebrow">Routinic</div>
     <h1>Privacy Policy</h1>
-    <p class="page-meta">Last Updated: April 26, 2026</p>
+    <p class="pg-meta">Last Updated: April 26, 2026</p>
   </div>
 
-  <p class="intro">
-    Routinic is a habit tracking application for Android. Your privacy is important to us. This Privacy Policy explains how Routinic handles data and information when you use the app. Routinic is designed to work primarily offline and does not require user registration or an account.
-  </p>
+  <div class="intro-block">
+    <p>Routinic is a habit tracking application for Android. Your privacy is important to us. This Privacy Policy explains how Routinic handles data and information when you use the app. Routinic is designed to work primarily offline and does not require user registration or an account.</p>
+  </div>
 
-  <!-- 1 -->
-  <div class="section">
+  <div class="doc-section">
     <h2>1. Information We Collect</h2>
     <p>Routinic is designed to work primarily offline and does not require user registration.</p>
     <p>We do not collect personally identifiable information such as your name, email address, phone number, or location.</p>
@@ -355,14 +217,13 @@
     <ul>
       <li><strong>Habit data:</strong> Habits you create, schedules, completion records, streaks, and Awesome Day history — stored locally on your device only.</li>
       <li><strong>Timer session data:</strong> Duration and completion state of timed habits — stored locally on your device only.</li>
-      <li><strong>App preferences:</strong> Your chosen theme (Light, Dark, Dark Blue), reminder times, and settings — stored locally on your device only.</li>
+      <li><strong>App preferences:</strong> Your chosen theme, reminder times, and settings — stored locally on your device only.</li>
       <li><strong>Ad consent choice:</strong> Whether you accept or decline personalised advertising via Google's UMP at first launch — stored on your device and shared with AdMob as required by their platform.</li>
       <li><strong>Crash and diagnostic data:</strong> Anonymous crash reports and app performance data collected via Firebase Crashlytics and Firebase Analytics to help us identify and fix issues.</li>
     </ul>
   </div>
 
-  <!-- 2 -->
-  <div class="section">
+  <div class="doc-section">
     <h2>2. Local Data Storage</h2>
     <div class="callout callout-green">
       <p><strong>All habit data, progress logs, streaks, and schedules are stored locally on your device.</strong> We do not upload, store, or process your habit data on external servers. You retain full ownership and control over your data.</p>
@@ -374,8 +235,7 @@
     </ul>
   </div>
 
-  <!-- 3 -->
-  <div class="section">
+  <div class="doc-section">
     <h2>3. How We Use Your Information</h2>
     <p>Since your personal habit data stays on your device, it is used solely to power the app's features:</p>
     <ul>
@@ -390,8 +250,7 @@
     <p>We do not use your data for profiling, targeted marketing, or any purpose beyond running and improving the app.</p>
   </div>
 
-  <!-- 4 -->
-  <div class="section">
+  <div class="doc-section">
     <h2>4. Analytics and Crash Reporting</h2>
     <p>Routinic uses the following third-party services for crash reporting and analytics:</p>
     <ul>
@@ -408,8 +267,7 @@
     <p>This data is used only to improve app performance, fix bugs, and understand feature usage. It does not include your habit content and is not used to identify you personally. See <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase's Privacy Policy</a> for details.</p>
   </div>
 
-  <!-- 5 -->
-  <div class="section">
+  <div class="doc-section">
     <h2>5. Advertising (Google AdMob)</h2>
     <p>Routinic is free to download and use. To support ongoing development, the app displays advertisements provided by <strong>Google AdMob</strong>.</p>
     <div class="callout callout-amber">
@@ -423,8 +281,7 @@
     <p>Review Google's Privacy Policy at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
   </div>
 
-  <!-- 6 -->
-  <div class="section">
+  <div class="doc-section">
     <h2>6. Data Sharing</h2>
     <p>We do not sell, trade, or rent user data.</p>
     <p>We only share limited anonymous data with third-party services used for:</p>
@@ -435,14 +292,11 @@
     <p>These services receive only the anonymised data described above. Your personal habit data is never shared.</p>
   </div>
 
-  <!-- 7 -->
-  <div class="section">
+  <div class="doc-section">
     <h2>7. App Permissions</h2>
     <p>Routinic requests only the permissions it genuinely needs:</p>
     <table class="ptable">
-      <thead>
-        <tr><th>Permission</th><th>Name</th><th>Why it is needed</th></tr>
-      </thead>
+      <thead><tr><th>Permission</th><th>Name</th><th>Why it is needed</th></tr></thead>
       <tbody>
         <tr><td>POST_NOTIFICATIONS</td><td>Notifications</td><td>To send habit reminders at your chosen times. Disable anytime in Android Settings → Apps → Routinic → Notifications.</td></tr>
         <tr><td>SCHEDULE_EXACT_ALARM</td><td>Exact Alarms</td><td>To fire reminders at the precise time you set, including across DST changes. Required on Android 12+.</td></tr>
@@ -453,8 +307,7 @@
     </table>
   </div>
 
-  <!-- 8 -->
-  <div class="section">
+  <div class="doc-section">
     <h2>8. Data Retention and Deletion</h2>
     <p>Since all habit data is stored locally on your device:</p>
     <ul>
@@ -464,14 +317,12 @@
     <p>We do not store user habit data on our servers and therefore have nothing to delete on our end.</p>
   </div>
 
-  <!-- 9 -->
-  <div class="section">
+  <div class="doc-section">
     <h2>9. Children's Privacy</h2>
     <p>Routinic is not specifically directed at children under the age of 13. We do not knowingly collect personal information from children. Because no account is required and all data is stored locally, no personal information is collected from any user regardless of age.</p>
   </div>
 
-  <!-- 10 -->
-  <div class="section">
+  <div class="doc-section">
     <h2>10. Your Rights and Choices</h2>
     <ul>
       <li><strong>Access your data:</strong> All data is visible directly within the app.</li>
@@ -482,15 +333,13 @@
     </ul>
   </div>
 
-  <!-- 11 -->
-  <div class="section">
+  <div class="doc-section">
     <h2>11. Changes to This Privacy Policy</h2>
     <p>We may update this Privacy Policy from time to time. Updates will be reflected by the "Last Updated" date at the top of this document.</p>
     <p>Continued use of the app after changes means you accept the updated policy.</p>
   </div>
 
-  <!-- 12 -->
-  <div class="section">
+  <div class="doc-section">
     <h2>12. Contact</h2>
     <p>If you have any questions about this Privacy Policy, contact us at:</p>
     <div class="contact-card">
@@ -503,23 +352,12 @@
       </div>
     </div>
   </div>
+</div>
 
-</div><!-- /page -->
-
-<!-- FOOTER -->
 <footer>
-  <a href="#" class="nav-logo" style="text-decoration:none;">
-    <svg class="logo-svg" style="width:22px;height:22px;" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="flg-pp" x1="22" y1="22" x2="86" y2="86" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="#818CF8"/><stop offset="1" stop-color="#4F46E5"/>
-        </linearGradient>
-      </defs>
-      <circle cx="54" cy="54" r="32" fill="url(#flg-pp)"/>
-      <path d="M48,58L39,49C38.1,48.1 38.1,46.6 39,45.7C39.9,44.8 41.4,44.8 42.3,45.7L49.7,53.1L66.7,36.1C67.6,35.2 69.1,35.2 70,36.1C70.9,37 70.9,38.5 70,39.4L51.3,58C50.4,58.9 48.9,58.9 48,58Z" fill="#fff" fill-opacity=".55"/>
-      <path d="M48,72L39,63C38.1,62.1 38.1,60.6 39,59.7C39.9,58.8 41.4,58.8 42.3,59.7L49.7,67.1L66.7,50.1C67.6,49.2 69.1,49.2 70,50.1C70.9,51 70.9,52.5 70,53.4L51.3,72C50.4,72.9 48.9,72.9 48,72Z" fill="#fff"/>
-    </svg>
-    <span style="font-size:14px;font-weight:600;color:var(--text-muted);margin-left:6px;">Routinic</span>
+  <a class="footer-logo" href="routinic.html">
+    <svg style="width:20px;height:20px;" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="fl" x1="22" y1="22" x2="86" y2="86" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#818CF8"/><stop offset="1" stop-color="#4F46E5"/></linearGradient></defs><circle cx="54" cy="54" r="32" fill="url(#fl)"/><path d="M48,58L39,49C38.1,48.1 38.1,46.6 39,45.7C39.9,44.8 41.4,44.8 42.3,45.7L49.7,53.1L66.7,36.1C67.6,35.2 69.1,35.2 70,36.1C70.9,37 70.9,38.5 70,39.4L51.3,58C50.4,58.9 48.9,58.9 48,58Z" fill="#fff" fill-opacity=".5"/><path d="M48,72L39,63C38.1,62.1 38.1,60.6 39,59.7C39.9,58.8 41.4,58.8 42.3,59.7L49.7,67.1L66.7,50.1C67.6,49.2 69.1,49.2 70,50.1C70.9,51 70.9,52.5 70,53.4L51.3,72C50.4,72.9 48.9,72.9 48,72Z" fill="#fff"/></svg>
+    <span>Routinic</span>
   </a>
   <div class="footer-links">
     <a href="privacy-policy.html">Privacy Policy</a>
@@ -528,5 +366,6 @@
   </div>
 </footer>
 
+</div>
 </body>
 </html>
