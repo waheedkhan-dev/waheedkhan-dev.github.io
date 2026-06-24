@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Data Deletion Request — Routinic</title>
+<meta name="description" content="Request deletion of your Routinic device data from our servers."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --void:#08080D;
+  --glass:rgba(255,255,255,0.035);
+  --glass-hover:rgba(255,255,255,0.055);
+  --border:rgba(255,255,255,0.07);
+  --text:#F0EEFF;
+  --text-sec:#9896B8;
+  --text-muted:#524F72;
+  --brand:#818CF8;
+  --brand-dk:#6366F1;
+  --brand-lt:rgba(129,140,248,0.1);
+  --brand-glow:rgba(99,102,241,0.25);
+  --green:#34D399;
+  --green-lt:rgba(52,211,153,0.08);
+  --amber:#FBBF24;
+  --amber-lt:rgba(251,191,36,0.08);
+  --red:#F87171;
+  --red-lt:rgba(248,113,113,0.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--void);color:var(--text);
+  font-size:16px;line-height:1.7;
+  min-height:100vh;display:flex;flex-direction:column;
+  overflow-x:hidden;
+}
+.ambient{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden;}
+.orb1{position:absolute;top:-150px;left:-100px;width:500px;height:500px;background:radial-gradient(ellipse,rgba(99,102,241,0.14) 0%,transparent 68%);border-radius:50%;}
+.orb2{position:absolute;bottom:-120px;right:-60px;width:400px;height:400px;background:radial-gradient(ellipse,rgba(129,140,248,0.08) 0%,transparent 65%);border-radius:50%;}
+.wrap{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh;}
+
+nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;padding:0 48px;height:62px;
+  background:rgba(8,8,13,0.8);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-svg{width:28px;height:28px;}
+.logo-text{font-size:16px;font-weight:800;color:var(--text);letter-spacing:-.02em;}
+.nav-right{margin-left:auto;}
+.nav-back{
+  font-size:13px;font-weight:500;color:var(--text-muted);
+  text-decoration:none;padding:6px 12px;border-radius:10px;
+  transition:color .2s,background .2s;
+}
+.nav-back:hover{color:var(--text);background:var(--glass);}
+
+.page-wrap{
+  max-width:680px;margin:0 auto;
+  padding:72px 32px 96px;flex:1;
+}
+
+/* HERO */
+.del-hero{text-align:center;margin-bottom:56px;}
+.del-icon{
+  width:72px;height:72px;border-radius:20px;
+  background:var(--red-lt);border:1px solid rgba(248,113,113,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;margin:0 auto 24px;
+}
+.del-eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--brand-lt);border:1px solid rgba(129,140,248,.2);
+  color:var(--brand);font-size:11px;font-weight:700;
+  letter-spacing:.6px;text-transform:uppercase;
+  padding:5px 14px;border-radius:999px;margin-bottom:18px;
+}
+.del-hero h1{
+  font-size:clamp(1.7rem,4vw,2.4rem);
+  font-weight:800;letter-spacing:-.05em;
+  line-height:1.15;color:var(--text);margin-bottom:14px;
+}
+.del-hero p{
+  font-size:.95rem;color:var(--text-sec);
+  line-height:1.8;max-width:480px;margin:0 auto;
+}
+
+/* WHAT WE STORE */
+.info-card{
+  background:var(--glass);border:1px solid var(--border);
+  border-radius:18px;padding:26px 28px;
+  backdrop-filter:blur(20px);margin-bottom:16px;
+}
+.info-card h2{
+  font-size:.95rem;font-weight:700;color:var(--text);
+  margin-bottom:16px;display:flex;align-items:center;gap:10px;
+  letter-spacing:-.02em;
+}
+.info-card h2::before{
+  content:'';width:3px;height:16px;
+  background:linear-gradient(180deg,#818CF8,#6366F1);
+  border-radius:2px;flex-shrink:0;
+}
+.data-list{display:flex;flex-direction:column;gap:0;}
+.data-row{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);
+}
+.data-row:last-child{border-bottom:none;padding-bottom:0;}
+.data-row:first-child{padding-top:0;}
+.data-label{
+  font-size:.8rem;font-weight:600;color:var(--brand);
+  font-family:'SF Mono','Courier New',monospace;
+  flex-shrink:0;width:150px;padding-top:1px;
+}
+.data-desc{font-size:.85rem;color:var(--text-sec);line-height:1.55;}
+
+/* CALLOUTS */
+.callout{
+  border-radius:12px;padding:14px 18px;margin-bottom:16px;
+  border-left:2px solid;backdrop-filter:blur(10px);
+}
+.callout p{margin:0;font-size:.875rem;line-height:1.7;}
+.callout-green{background:var(--green-lt);border-color:var(--green);}
+.callout-green p{color:rgba(167,243,208,.9);}
+.callout-amber{background:var(--amber-lt);border-color:var(--amber);}
+.callout-amber p{color:rgba(253,230,138,.9);}
+.callout-red{background:var(--red-lt);border-color:var(--red);}
+.callout-red p{color:rgba(252,165,165,.9);}
+
+/* SLA STRIP */
+.sla-strip{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:12px;margin-bottom:32px;
+}
+.sla-item{
+  background:var(--glass);border:1px solid var(--border);
+  border-radius:14px;padding:18px 16px;text-align:center;
+  backdrop-filter:blur(16px);
+}
+.sla-value{
+  font-size:1.5rem;font-weight:800;letter-spacing:-.04em;
+  background:linear-gradient(135deg,#c7d2fe,#818CF8);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;margin-bottom:4px;
+}
+.sla-label{font-size:.75rem;color:var(--text-muted);font-weight:500;}
+
+/* CTA BUTTON */
+.cta-wrap{text-align:center;margin-bottom:32px;}
+.del-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,#818CF8,#6366F1);
+  color:#fff;text-decoration:none;
+  padding:15px 32px;border-radius:14px;
+  font-size:1rem;font-weight:700;letter-spacing:-.01em;
+  box-shadow:0 4px 24px var(--brand-glow),0 1px 0 rgba(255,255,255,.15) inset;
+  transition:transform .2s,box-shadow .2s;
+}
+.del-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(99,102,241,.45),0 1px 0 rgba(255,255,255,.15) inset;}
+.del-btn svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.del-manual{
+  margin-top:14px;font-size:.82rem;color:var(--text-muted);
+  line-height:1.6;
+}
+.del-manual strong{color:var(--text-sec);}
+.del-manual code{
+  display:inline-block;
+  background:rgba(255,255,255,.06);border:1px solid var(--border);
+  padding:2px 8px;border-radius:6px;font-family:monospace;
+  font-size:.8rem;color:var(--brand);margin-top:4px;
+}
+
+/* LOCAL DATA NOTE */
+.local-note{
+  background:var(--glass);border:1px solid var(--border);
+  border-radius:16px;padding:22px 24px;
+  backdrop-filter:blur(16px);margin-bottom:16px;
+}
+.local-note h3{
+  font-size:.875rem;font-weight:700;color:var(--text);
+  margin-bottom:10px;display:flex;align-items:center;gap:8px;
+}
+.local-note p{font-size:.85rem;color:var(--text-sec);line-height:1.7;margin-bottom:8px;}
+.local-note p:last-child{margin-bottom:0;}
+.step-row{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:6px 0;font-size:.85rem;color:var(--text-sec);
+}
+.step-num{
+  width:22px;height:22px;border-radius:7px;
+  background:var(--brand-lt);border:1px solid rgba(129,140,248,.2);
+  color:var(--brand);font-size:.7rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+
+/* SECTION LABEL */
+.section-eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:1.2px;
+  text-transform:uppercase;color:var(--brand);
+  margin-bottom:14px;margin-top:40px;
+  display:flex;align-items:center;gap:8px;
+}
+.section-eyebrow::before{content:'';width:20px;height:1px;background:var(--brand);}
+
+footer{
+  border-top:1px solid var(--border);
+  background:rgba(8,8,13,.6);backdrop-filter:blur(20px);
+  padding:24px 48px;display:flex;align-items:center;justify-content:space-between;
+  font-size:13px;color:var(--text-muted);
+}
+footer a{color:var(--text-muted);text-decoration:none;transition:color .2s;}
+footer a:hover{color:var(--brand);}
+.footer-logo{display:flex;align-items:center;gap:8px;text-decoration:none;}
+.footer-logo span{font-size:13px;font-weight:600;color:var(--text-muted);}
+.footer-links{display:flex;gap:24px;}
+
+@media(max-width:600px){
+  nav{padding:0 20px;}
+  .page-wrap{padding:48px 20px 72px;}
+  .sla-strip{grid-template-columns:1fr;}
+  footer{flex-direction:column;gap:16px;text-align:center;padding:24px 20px;}
+  .footer-links{flex-wrap:wrap;justify-content:center;gap:16px;}
+  .data-label{width:120px;}
+}
+</style>
+</head>
+<body>
+<div class="ambient"><div class="orb1"></div><div class="orb2"></div></div>
+<div class="wrap">
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="routinic.html">
+    <svg class="logo-svg" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="nl" x1="22" y1="22" x2="86" y2="86" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#818CF8"/><stop offset="1" stop-color="#4F46E5"/></linearGradient>
+        <radialGradient id="nr" cx="42" cy="42" r="40" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+      </defs>
+      <circle cx="54" cy="54" r="32" fill="url(#nl)"/>
+      <circle cx="54" cy="54" r="28" fill="url(#nr)"/>
+      <path d="M48,58L39,49C38.1,48.1 38.1,46.6 39,45.7C39.9,44.8 41.4,44.8 42.3,45.7L49.7,53.1L66.7,36.1C67.6,35.2 69.1,35.2 70,36.1C70.9,37 70.9,38.5 70,39.4L51.3,58C50.4,58.9 48.9,58.9 48,58Z" fill="#fff" fill-opacity=".5"/>
+      <path d="M48,72L39,63C38.1,62.1 38.1,60.6 39,59.7C39.9,58.8 41.4,58.8 42.3,59.7L49.7,67.1L66.7,50.1C67.6,49.2 69.1,49.2 70,50.1C70.9,51 70.9,52.5 70,53.4L51.3,72C50.4,72.9 48.9,72.9 48,72Z" fill="#fff"/>
+    </svg>
+    <span class="logo-text">Routinic</span>
+  </a>
+  <div class="nav-right">
+    <a class="nav-back" href="privacy-policy.html">← Privacy Policy</a>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <div class="del-hero">
+    <div class="del-eyebrow">Your Privacy Rights</div>
+    <h1>Request Data Deletion</h1>
+    <p>You have the right to request deletion of your device data from our servers at any time. This page explains what data we hold, how to request deletion, and our commitment to process it within 30 days.</p>
+  </div>
+
+  <!-- WHAT WE STORE -->
+  <p class="section-eyebrow">What We Store</p>
+
+  <div class="callout callout-green">
+    <p><strong>Your habit data never leaves your device.</strong> All habits, streaks, statistics, and preferences are stored locally only. This deletion request covers only the anonymous technical data described below.</p>
+  </div>
+
+  <div class="info-card">
+    <h2>Device Installation Record</h2>
+    <div class="data-list">
+      <div class="data-row">
+        <span class="data-label">Installation ID</span>
+        <span class="data-desc">A randomly generated unique identifier created when you first installed the app. Not linked to your name or any account.</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">FCM Token</span>
+        <span class="data-desc">A Firebase Cloud Messaging token used to deliver push notifications and habit reminders to your device.</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Device Info</span>
+        <span class="data-desc">Your device manufacturer, model name, and Android OS version (e.g., "Samsung Galaxy S23", Android 14).</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Country</span>
+        <span class="data-desc">Derived from your device's region settings. Not your precise location or GPS data.</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">App Version</span>
+        <span class="data-desc">The version of Routinic you have installed and the date it was first installed.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLA -->
+  <p class="section-eyebrow">Our Commitment</p>
+
+  <div class="sla-strip">
+    <div class="sla-item">
+      <div class="sla-value">30</div>
+      <div class="sla-label">Days to complete deletion</div>
+    </div>
+    <div class="sla-item">
+      <div class="sla-value">2–3</div>
+      <div class="sla-label">Business days to confirm receipt</div>
+    </div>
+    <div class="sla-item">
+      <div class="sla-value">0</div>
+      <div class="sla-label">Requirements to verify identity</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <p class="section-eyebrow">Submit Your Request</p>
+
+  <div class="callout callout-amber">
+    <p>Tapping the button below will open your email app with the subject line and recipient pre-filled. No personal information is required — simply send the email and we'll handle the rest.</p>
+  </div>
+
+  <div class="cta-wrap">
+    <a class="del-btn"
+       href="mailto:routinic.app@gmail.com?subject=Data%20Deletion%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20deletion%20of%20my%20device%20installation%20data%20from%20Routinic's%20servers.%0A%0AApp%3A%20Routinic%20%E2%80%94%20Daily%20Habit%20Tracker%0A%0AThank%20you.">
+      <svg viewBox="0 0 24 24">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+        <polyline points="22,6 12,13 2,6"/>
+      </svg>
+      Send Deletion Request
+    </a>
+    <div class="del-manual">
+      Or email us manually at <strong>routinic.app@gmail.com</strong><br/>
+      with the subject line:<br/>
+      <code>Data Deletion Request</code>
+    </div>
+  </div>
+
+  <!-- LOCAL DATA -->
+  <p class="section-eyebrow">Deleting Local Habit Data</p>
+
+  <div class="local-note">
+    <h3>🗂️ Your habit data is stored only on your device</h3>
+    <p>To delete your local habit data, streaks, statistics, and preferences — we have no access to this data and cannot delete it for you. You control it entirely.</p>
+    <div class="step-row"><div class="step-num">1</div><span>Open <strong>Android Settings</strong></span></div>
+    <div class="step-row"><div class="step-num">2</div><span>Go to <strong>Apps → Routinic</strong></span></div>
+    <div class="step-row"><div class="step-num">3</div><span>Tap <strong>Storage → Clear data</strong></span></div>
+    <div class="step-row"><div class="step-num">4</div><span>Or simply <strong>uninstall the app</strong> — all local data is permanently removed</span></div>
+    <p style="margin-top:12px;">⚠️ This action is irreversible. Your habit history cannot be recovered once cleared.</p>
+  </div>
+
+  <div class="callout callout-red">
+    <p><strong>Note:</strong> Uninstalling the app does not automatically delete your device installation record from our Firebase servers. Please submit the deletion request above if you also want that data removed.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a class="footer-logo" href="routinic.html">
+    <svg style="width:20px;height:20px;" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="fl" x1="22" y1="22" x2="86" y2="86" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#818CF8"/><stop offset="1" stop-color="#4F46E5"/></linearGradient></defs>
+      <circle cx="54" cy="54" r="32" fill="url(#fl)"/>
+      <path d="M48,58L39,49C38.1,48.1 38.1,46.6 39,45.7C39.9,44.8 41.4,44.8 42.3,45.7L49.7,53.1L66.7,36.1C67.6,35.2 69.1,35.2 70,36.1C70.9,37 70.9,38.5 70,39.4L51.3,58C50.4,58.9 48.9,58.9 48,58Z" fill="#fff" fill-opacity=".5"/>
+      <path d="M48,72L39,63C38.1,62.1 38.1,60.6 39,59.7C39.9,58.8 41.4,58.8 42.3,59.7L49.7,67.1L66.7,50.1C67.6,49.2 69.1,49.2 70,50.1C70.9,51 70.9,52.5 70,53.4L51.3,72C50.4,72.9 48.9,72.9 48,72Z" fill="#fff"/>
+    </svg>
+    <span>Routinic</span>
+  </a>
+  <div class="footer-links">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-of-use.html">Terms of Use</a>
+    <a href="mailto:routinic.app@gmail.com">Contact</a>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
