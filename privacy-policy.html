@@ -202,48 +202,67 @@ footer a:hover{color:var(--brand);}
   <div class="page-header">
     <div class="pg-eyebrow">Routinic</div>
     <h1>Privacy Policy</h1>
-    <p class="pg-meta">Last Updated: April 26, 2026</p>
+    <p class="pg-meta">Last Updated: June 24, 2026</p>
   </div>
 
   <div class="intro-block">
-    <p>Routinic is a habit tracking application for Android. Your privacy is important to us. This Privacy Policy explains how Routinic handles data and information when you use the app. Routinic is designed to work primarily offline and does not require user registration or an account.</p>
+    <p>Routinic is a habit tracking application for Android. Your privacy is important to us. This Privacy Policy explains what information Routinic collects, how it is used, and your rights regarding that information. Routinic is designed to work primarily offline and does not require user registration or an account. However, certain technical data is automatically collected to support push notifications and app stability.</p>
   </div>
 
   <div class="doc-section">
     <h2>1. Information We Collect</h2>
-    <p>Routinic is designed to work primarily offline and does not require user registration.</p>
-    <p>We do not collect personally identifiable information such as your name, email address, phone number, or location.</p>
-    <p>However, the app may collect limited anonymous data through third-party services to improve app performance and stability:</p>
+    <p>Routinic does not require user registration and does not collect personally identifiable information such as your name, email address, or phone number.</p>
+    <p>We collect two categories of data: data that stays entirely on your device, and limited technical data that is sent to our secure servers to support push notifications and app stability.</p>
+
+    <p><strong>Data stored locally on your device only:</strong></p>
     <ul>
-      <li><strong>Habit data:</strong> Habits you create, schedules, completion records, streaks, and Awesome Day history — stored locally on your device only.</li>
-      <li><strong>Timer session data:</strong> Duration and completion state of timed habits — stored locally on your device only.</li>
-      <li><strong>App preferences:</strong> Your chosen theme, reminder times, and settings — stored locally on your device only.</li>
+      <li><strong>Habit data:</strong> Habits you create, schedules, completion records, streaks, and Awesome Day history — never leaves your device.</li>
+      <li><strong>Timer session data:</strong> Duration and completion state of timed habits — stored locally only.</li>
+      <li><strong>App preferences:</strong> Your chosen theme, reminder times, and settings — stored locally only.</li>
       <li><strong>Ad consent choice:</strong> Whether you accept or decline personalised advertising via Google's UMP at first launch — stored on your device and shared with AdMob as required by their platform.</li>
-      <li><strong>Crash and diagnostic data:</strong> Anonymous crash reports and app performance data collected via Firebase Crashlytics and Firebase Analytics to help us identify and fix issues.</li>
+    </ul>
+
+    <p><strong>Technical data collected automatically and stored on secure Firebase servers:</strong></p>
+    <ul>
+      <li><strong>Installation ID:</strong> A randomly generated unique identifier created when you first install the app. This is not linked to your name, account, or any personally identifiable information.</li>
+      <li><strong>Push Notification Token (FCM Token):</strong> A Firebase Cloud Messaging token used to deliver habit reminders and push notifications to your device.</li>
+      <li><strong>Device Information:</strong> Your device manufacturer, model name, and Android OS version — used to maintain compatibility and diagnose issues.</li>
+      <li><strong>Country:</strong> Derived from your device's region or language settings. We do not collect your precise location or GPS data.</li>
+      <li><strong>App Version:</strong> The version of Routinic installed on your device and when it was first installed.</li>
+      <li><strong>Crash and diagnostic data:</strong> Anonymous crash reports and app performance data collected via Firebase Crashlytics and Firebase Analytics.</li>
     </ul>
   </div>
 
   <div class="doc-section">
     <h2>2. Local Data Storage</h2>
     <div class="callout callout-green">
-      <p><strong>All habit data, progress logs, streaks, and schedules are stored locally on your device.</strong> We do not upload, store, or process your habit data on external servers. You retain full ownership and control over your data.</p>
+      <p><strong>Your habit data never leaves your device.</strong> All habits, progress logs, streaks, schedules, timer sessions, and app preferences are stored locally using an offline database. We do not upload, store, or process your habit data on any external server.</p>
+    </div>
+    <div class="callout callout-amber">
+      <p><strong>Technical device data is stored on Firebase servers.</strong> When you install the app, a small set of anonymous technical information (Installation ID, FCM token, device model, Android version, country, and app version) is stored securely on Google Firebase Firestore. This data is not linked to your identity and is used solely for push notifications and app stability. See Section 5 for full details.</p>
     </div>
     <ul>
-      <li>The app works fully without an internet connection.</li>
-      <li>If you uninstall Routinic or clear the app's data, your information is permanently deleted. We cannot recover it.</li>
-      <li>We recommend enabling Android's automatic device backup to protect against accidental loss.</li>
+      <li>Habit data works fully without an internet connection.</li>
+      <li>If you uninstall Routinic or clear the app's storage, all local habit data is permanently deleted from your device.</li>
+      <li>To request deletion of your device installation data from our servers, see Section 10.</li>
+      <li>We recommend enabling Android's automatic device backup to protect your local habit data against accidental loss.</li>
     </ul>
   </div>
 
   <div class="doc-section">
     <h2>3. How We Use Your Information</h2>
-    <p>Since your personal habit data stays on your device, it is used solely to power the app's features:</p>
+    <p>Your personal habit data stays on your device and is used solely to power the app's features:</p>
     <ul>
       <li>Displaying your habits, completion history, and streaks on screen</li>
       <li>Calculating statistics, bar-chart analytics, calendar heatmap, and Awesome Days</li>
       <li>Firing local reminders and alarms at the times you configure</li>
       <li>Running the built-in countdown timer for timed habits</li>
       <li>Applying your selected theme and display preferences</li>
+    </ul>
+    <p>The technical device data collected and stored on Firebase is used for:</p>
+    <ul>
+      <li>Delivering push notifications and habit reminders to your device via Firebase Cloud Messaging</li>
+      <li>Understanding which devices and Android versions our users run, so we can maintain compatibility</li>
       <li>Diagnosing crashes and improving app stability via Firebase Crashlytics</li>
       <li>Understanding general app usage patterns via Firebase Analytics to improve features</li>
     </ul>
@@ -252,23 +271,34 @@ footer a:hover{color:var(--brand);}
 
   <div class="doc-section">
     <h2>4. Analytics and Crash Reporting</h2>
-    <p>Routinic uses the following third-party services for crash reporting and analytics:</p>
+    <p>Routinic uses the following Firebase services for crash reporting and analytics:</p>
     <ul>
-      <li>Firebase Crashlytics</li>
-      <li>Firebase Analytics</li>
+      <li><strong>Firebase Crashlytics</strong> — Collects anonymous crash reports to help us identify and fix bugs.</li>
+      <li><strong>Firebase Analytics</strong> — Collects anonymous usage statistics such as session duration, screen views, and feature interaction counts.</li>
     </ul>
-    <p>These services may collect anonymous information such as:</p>
-    <ul>
-      <li>Device model and operating system version</li>
-      <li>App usage statistics and session duration</li>
-      <li>Crash logs and diagnostics</li>
-      <li>Screen views and feature interaction counts</li>
-    </ul>
-    <p>This data is used only to improve app performance, fix bugs, and understand feature usage. It does not include your habit content and is not used to identify you personally. See <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase's Privacy Policy</a> for details.</p>
+    <p>This data does not include your habit content, your name, or any information that identifies you personally. It is used only to improve app performance and fix issues. See <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase's Privacy Policy</a> for details.</p>
   </div>
 
   <div class="doc-section">
-    <h2>5. Advertising (Google AdMob)</h2>
+    <h2>5. Device &amp; Installation Data</h2>
+    <p>When you install Routinic for the first time, the app automatically collects and stores the following technical information on secure Google Firebase Firestore servers. This data is tied to a randomly generated Installation ID — not to your name, email, or any account.</p>
+    <ul>
+      <li><strong>Installation ID:</strong> A randomly generated UUID created at first launch, unique to your app installation. If you reinstall the app, a new ID is generated.</li>
+      <li><strong>FCM Token:</strong> Your Firebase Cloud Messaging token, used to deliver push notifications and habit reminders. This token is refreshed periodically by Firebase.</li>
+      <li><strong>Device Name &amp; Model:</strong> Your device manufacturer and model (e.g., "Samsung Galaxy S23") — used to diagnose device-specific issues.</li>
+      <li><strong>Android Version:</strong> Your device's Android OS version — used to ensure compatibility across Android releases.</li>
+      <li><strong>Country:</strong> Derived from your device's region or language settings (e.g., "PK", "US"). We do not collect precise geolocation or GPS data.</li>
+      <li><strong>App Version &amp; Build Number:</strong> The version of Routinic you have installed and when it was first installed.</li>
+    </ul>
+    <div class="callout callout-green">
+      <p><strong>This data is never linked to your identity.</strong> We have no way to connect your Installation ID to your name, phone number, email address, or any personal account. It is anonymous technical telemetry used purely for app reliability and notifications.</p>
+    </div>
+    <p>On subsequent app launches, only your FCM token and app version are updated on the server — no new data categories are collected.</p>
+    <p>Device installation data is stored using <strong>Google Firebase Firestore</strong>. By using Routinic, you acknowledge that this data is processed in accordance with <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>6. Advertising (Google AdMob)</h2>
     <p>Routinic is free to download and use. To support ongoing development, the app displays advertisements provided by <strong>Google AdMob</strong>.</p>
     <div class="callout callout-amber">
       <p><strong>Consent is requested at first launch.</strong> When you first open Routinic, Google's User Messaging Platform (UMP) will ask whether you consent to personalised advertising. You may accept or decline. To change your choice later, go to your Android Google account settings under <strong>Ads &amp; data</strong>, or reinstall the app to see the prompt again.</p>
@@ -282,18 +312,19 @@ footer a:hover{color:var(--brand);}
   </div>
 
   <div class="doc-section">
-    <h2>6. Data Sharing</h2>
+    <h2>7. Data Sharing</h2>
     <p>We do not sell, trade, or rent user data.</p>
-    <p>We only share limited anonymous data with third-party services used for:</p>
+    <p>We share limited anonymous data only with the following third-party services, strictly for operating the app:</p>
     <ul>
-      <li>Analytics and crash reporting (Firebase)</li>
-      <li>Advertising (Google AdMob)</li>
+      <li><strong>Google Firebase Firestore</strong> — Stores anonymous device installation data (see Section 5)</li>
+      <li><strong>Firebase Crashlytics &amp; Analytics</strong> — Receives anonymous crash reports and usage statistics (see Section 4)</li>
+      <li><strong>Google AdMob</strong> — Serves advertisements; receives your ad consent choice and, if consented, your advertising ID (see Section 6)</li>
     </ul>
-    <p>These services receive only the anonymised data described above. Your personal habit data is never shared.</p>
+    <p>Your personal habit data, timer data, and app preferences are never shared with any third party.</p>
   </div>
 
   <div class="doc-section">
-    <h2>7. App Permissions</h2>
+    <h2>8. App Permissions</h2>
     <p>Routinic requests only the permissions it genuinely needs:</p>
     <table class="ptable">
       <thead><tr><th>Permission</th><th>Name</th><th>Why it is needed</th></tr></thead>
@@ -301,54 +332,73 @@ footer a:hover{color:var(--brand);}
         <tr><td>POST_NOTIFICATIONS</td><td>Notifications</td><td>To send habit reminders at your chosen times. Disable anytime in Android Settings → Apps → Routinic → Notifications.</td></tr>
         <tr><td>SCHEDULE_EXACT_ALARM</td><td>Exact Alarms</td><td>To fire reminders at the precise time you set, including across DST changes. Required on Android 12+.</td></tr>
         <tr><td>RECEIVE_BOOT_COMPLETED</td><td>Boot Receiver</td><td>To reschedule your reminders automatically after your device restarts.</td></tr>
-        <tr><td>INTERNET</td><td>Internet</td><td>Required by AdMob to load ads and by Firebase to send crash and analytics reports. Not used to transmit your habit data.</td></tr>
+        <tr><td>INTERNET</td><td>Internet</td><td>Required by AdMob to load ads, by Firebase for crash/analytics reporting, and to sync your device installation data and FCM token with Firebase Firestore.</td></tr>
         <tr><td>ACCESS_NETWORK_STATE</td><td>Network State</td><td>Used by AdMob to check connectivity before loading ads.</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="doc-section">
-    <h2>8. Data Retention and Deletion</h2>
-    <p>Since all habit data is stored locally on your device:</p>
+    <h2>9. Data Retention and Deletion</h2>
+
+    <p><strong>Local data (habit data, preferences, timer data):</strong></p>
     <ul>
-      <li>Uninstalling the app will permanently delete all app data.</li>
-      <li>Clearing app data via Android Settings → Apps → Routinic → Storage will also permanently delete your data.</li>
+      <li>Retained on your device for as long as you use the app.</li>
+      <li>Permanently deleted when you uninstall Routinic or clear app data via Android Settings → Apps → Routinic → Storage → Clear data.</li>
+      <li>We have no access to this data and cannot recover it once deleted.</li>
     </ul>
-    <p>We do not store user habit data on our servers and therefore have nothing to delete on our end.</p>
-  </div>
 
-  <div class="doc-section">
-    <h2>9. Children's Privacy</h2>
-    <p>Routinic is not specifically directed at children under the age of 13. We do not knowingly collect personal information from children. Because no account is required and all data is stored locally, no personal information is collected from any user regardless of age.</p>
-  </div>
-
-  <div class="doc-section">
-    <h2>10. Your Rights and Choices</h2>
+    <p><strong>Server-side data (device installation record in Firebase Firestore):</strong></p>
     <ul>
-      <li><strong>Access your data:</strong> All data is visible directly within the app.</li>
-      <li><strong>Delete your data:</strong> Delete habits in the app, or go to Android Settings → Apps → Routinic → Storage → Clear data.</li>
-      <li><strong>Change your ad consent:</strong> Go to your Android Google account settings under Ads &amp; data, or reinstall the app.</li>
+      <li>Retained for as long as you have the app installed.</li>
+      <li>You may request deletion at any time by contacting us (see Section 12).</li>
+      <li>We will permanently delete your installation record from our servers within <strong>30 days</strong> of receiving a verified deletion request.</li>
+    </ul>
+
+    <p><strong>Firebase Analytics &amp; Crashlytics data:</strong></p>
+    <ul>
+      <li>Retained according to Firebase's default retention policies (typically 2 months for Analytics, 90 days for Crashlytics).</li>
+      <li>As this data is fully anonymous and not linked to an Installation ID, individual deletion is not possible — but it contains no personally identifiable information.</li>
+    </ul>
+  </div>
+
+  <div class="doc-section">
+    <h2>10. Children's Privacy</h2>
+    <p>Routinic is not specifically directed at children under the age of 13. We do not knowingly collect personal information from children. The technical device data we collect (Installation ID, device model, etc.) is anonymous and not linked to any individual. If you believe a child has provided us with data, please contact us at routinic.app@gmail.com and we will delete it promptly.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>11. Your Rights and Choices</h2>
+    <ul>
+      <li><strong>Access your habit data:</strong> All habit data is visible directly within the app.</li>
+      <li><strong>Delete local data:</strong> Delete habits in the app, or go to Android Settings → Apps → Routinic → Storage → Clear data.</li>
+      <li><strong>Request server-side data deletion:</strong> Email us at routinic.app@gmail.com with the subject line <strong>"Data Deletion Request"</strong>. We will delete your installation record from Firebase Firestore within 30 days. No account or verification is required — simply send the request from any email address.</li>
+      <li><strong>Change your ad consent:</strong> Go to your Android Google account settings under Ads &amp; data, or reinstall the app to see the consent prompt again.</li>
       <li><strong>Disable notifications:</strong> Android Settings → Apps → Routinic → Notifications.</li>
       <li><strong>Opt out of personalised ads globally:</strong> Android Settings → Google → Ads → Delete advertising ID.</li>
     </ul>
+
+    <div class="callout callout-green">
+      <p><strong>Data Deletion Request:</strong> Send an email to <strong>routinic.app@gmail.com</strong> with subject line <strong>"Data Deletion Request"</strong>. We will confirm receipt and complete deletion within 30 days.</p>
+    </div>
   </div>
 
   <div class="doc-section">
-    <h2>11. Changes to This Privacy Policy</h2>
+    <h2>12. Changes to This Privacy Policy</h2>
     <p>We may update this Privacy Policy from time to time. Updates will be reflected by the "Last Updated" date at the top of this document.</p>
     <p>Continued use of the app after changes means you accept the updated policy.</p>
   </div>
 
   <div class="doc-section">
-    <h2>12. Contact</h2>
-    <p>If you have any questions about this Privacy Policy, contact us at:</p>
+    <h2>13. Contact</h2>
+    <p>For questions about this Privacy Policy or to submit a data deletion request, contact us at:</p>
     <div class="contact-card">
       <div class="contact-icon">
         <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </div>
       <div>
         <div class="contact-email"><a href="mailto:routinic.app@gmail.com">routinic.app@gmail.com</a></div>
-        <div class="contact-sub">We typically respond within 2–3 business days.</div>
+        <div class="contact-sub">For data deletion requests, use subject line: "Data Deletion Request" · We respond within 2–3 business days · Deletion completed within 30 days.</div>
       </div>
     </div>
   </div>
