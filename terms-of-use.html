@@ -132,7 +132,7 @@ footer a:hover{color:var(--brand);}
   <div class="page-header">
     <div class="pg-eyebrow">Routinic</div>
     <h1>Terms of Use</h1>
-    <p class="pg-meta">Last Updated: April 26, 2026</p>
+    <p class="pg-meta">Last Updated: June 24, 2026</p>
   </div>
 
   <div class="intro-block">
@@ -188,13 +188,17 @@ footer a:hover{color:var(--brand);}
   <div class="doc-section">
     <h2>5. Data &amp; Privacy</h2>
     <div class="callout callout-green">
-      <p><strong>Your data stays on your device.</strong> All habit data, streaks, statistics, and settings are stored locally. Routinic does not collect, transmit, or store your personal habit data on any server. We cannot access or recover it.</p>
+      <p><strong>Your habit data stays on your device.</strong> All habits, streaks, statistics, and settings are stored locally. We never upload, sell, or share your personal habit data.</p>
+    </div>
+    <div class="callout callout-amber">
+      <p><strong>Limited technical data is stored on Firebase servers.</strong> When you install the app, a small set of anonymous technical information (a randomly generated Installation ID, your FCM push notification token, device model, Android version, country, and app version) is stored securely on Google Firebase Firestore. This data is not linked to your identity and is used solely for push notifications and app stability.</p>
     </div>
     <ul>
-      <li><strong>Data loss risk:</strong> If you uninstall Routinic, reset your device, or clear app data, your habit history is permanently deleted.</li>
-      <li><strong>No account required:</strong> Your use of Routinic is entirely local to your device.</li>
-      <li><strong>Backup recommended:</strong> Enable Android's device backup to protect against accidental loss.</li>
-      <li><strong>Firebase services:</strong> We use Firebase Crashlytics and Analytics to collect anonymous crash reports and usage data to improve the app.</li>
+      <li><strong>Data loss risk:</strong> If you uninstall Routinic or clear app data, your local habit history is permanently deleted from your device. We cannot recover it.</li>
+      <li><strong>No account required:</strong> Your use of Routinic is entirely local to your device. No registration is needed.</li>
+      <li><strong>Backup recommended:</strong> Enable Android's device backup to protect against accidental local data loss.</li>
+      <li><strong>Firebase services:</strong> We use Firebase Firestore (device installation data), Firebase Crashlytics (crash reports), and Firebase Analytics (anonymous usage data) to operate and improve the app. None of these services receive your personal habit data.</li>
+      <li><strong>Server-side data deletion:</strong> You may request deletion of your Firebase installation record at any time by emailing routinic.app@gmail.com with the subject "Data Deletion Request". We will complete deletion within 30 days.</li>
     </ul>
     <p>For full details on data handling, see our <a href="privacy-policy.html">Privacy Policy</a>.</p>
   </div>
@@ -252,7 +256,8 @@ footer a:hover{color:var(--brand);}
 
   <div class="doc-section">
     <h2>12. Termination</h2>
-    <p>You may stop using Routinic at any time by uninstalling it from your device. Uninstalling will permanently delete all locally stored data.</p>
+    <p>You may stop using Routinic at any time by uninstalling it from your device. Uninstalling will permanently delete all locally stored habit data, preferences, and timer history from your device.</p>
+    <p>Note that your anonymous device installation record stored on Firebase Firestore (Installation ID, FCM token, device info) is not automatically deleted when you uninstall the app. To request deletion of this server-side record, email <a href="mailto:routinic.app@gmail.com">routinic.app@gmail.com</a> with the subject "Data Deletion Request". We will complete deletion within 30 days.</p>
     <p>We reserve the right to discontinue Routinic or restrict access at any time, with or without notice.</p>
   </div>
 
